@@ -7,3 +7,17 @@ GET     /                           controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+# Login page
+GET		/login						controllers.Application.login()
+
+# Authentication
+POST	/login						controllers.Application.authenticate()
+
+# Logout
+GET		/logout						controllers.Application.logout()
+
+# Sign Up
+GET		/signup						controllers.Application.signup()
+
+POST	/signup						controllers.Application.register()

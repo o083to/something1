@@ -1,0 +1,43 @@
+@(form: Form[Application.LoginForm])
+
+<html>
+    <head>
+        <title>Вход</title>
+    </head>
+    <body>
+        
+        @if(flash.contains("success")) {
+		    <p class="success">
+		        @flash.get("success")
+		    </p>
+		}
+        
+        @helper.form(routes.Application.authenticate) {
+            
+            <h1>Вход</h1>
+            
+            @if(form.hasGlobalErrors) { 
+                <p class="error">
+                    @form.globalError.message
+                </p>
+            }
+            
+		   <p>
+		       <input type="text" name="login" placeholder="Login" value="@form("login").value">
+		   </p>
+		   <p>
+		       <input type="password" name="password" placeholder="Password">
+		   </p>
+		   
+		   @Html(views.Captcha.getInstance().createCaptcha())
+		   
+		   <p>
+		       <button type="submit">войти</button>
+		   </p>
+            
+        }
+        
+        <a href="@routes.Application.signup()">Регистрация</a>
+            
+    </body>
+</html>

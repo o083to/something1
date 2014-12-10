@@ -1,0 +1,38 @@
+@(form: Form[Application.SignUpForm])
+
+<html>
+    <head>
+        <title>Регистрация</title>
+    </head>
+    <body>
+        
+        @helper.form(routes.Application.register) {
+            
+            <h1>Зарегистрироваться</h1>
+            
+            @if(form.hasGlobalErrors) { 
+                <p class="error">
+                    @form.globalError.message
+                </p>
+            }
+            
+		   <p>
+		       <input type="text" name="login" placeholder="Логин" value="@form("login").value">
+		   </p>
+		   <p>
+		       <input type="password" name="password1" placeholder="Пароль">
+		   </p>
+		   <p>
+		       <input type="password" name="password2" placeholder="Пароль ещё раз">
+		   </p>
+		   
+		   @Html(views.Captcha.getInstance().createCaptcha())
+		   
+		   <p>
+		       <button type="submit">готово</button>
+		   </p>
+            
+        }
+            
+    </body>
+</html>

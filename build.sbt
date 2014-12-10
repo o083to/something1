@@ -10,5 +10,6 @@ libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
   cache,
-  javaWs
+  javaWs,
+  "net.tanesha.recaptcha4j" % "recaptcha4j" % "0.0.7"  
 )
